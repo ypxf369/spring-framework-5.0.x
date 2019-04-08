@@ -23,6 +23,9 @@ import org.springframework.beans.PropertyValues;
 import org.springframework.lang.Nullable;
 
 /**
+ * 该后置处理器主要的作用是：
+ * 在目标对象的实例化过程中需要处理的事情，包括实例化的前后过程包括属性设置
+ *
  * Subinterface of {@link BeanPostProcessor} that adds a before-instantiation callback,
  * and a callback after instantiation but before explicit properties are set or
  * autowiring occurs.

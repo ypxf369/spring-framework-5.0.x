@@ -1,6 +1,7 @@
 package com.yp.test;
 
 import com.yp.AppConfig;
+import com.yp.myPostProcesser.UserService;
 import com.yp.service.UserDao;
 import com.yp.service.UserDaoImpl;
 import com.yp.util.MyComponentScan.MyAnnotationConfigApplicationContext;
@@ -16,13 +17,18 @@ public class Test {
 	public static void main(String[] args) {
 		// 把Spring所有的前提环境准备好
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		UserService userService = (UserService)context.getBean("userServerImpl2");
+		System.out.println(userService);
+		userService.get();
+
+
 		//context.register(UserDaoImpl.class);
 		//context.refresh();
 //		context.scan("com.yp");
 //
 //
-		UserDao userDao = (UserDao) context.getBean("userDaoImpl");
-		userDao.query();
+//		UserDao userDao = (UserDao) context.getBean("userDaoImpl");
+//		userDao.query();
 
 //		MyAnnotationConfigApplicationContext context = new MyAnnotationConfigApplicationContext();
 //		context.scan("com.yp");

@@ -516,6 +516,9 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	@Override
 	public void refresh() throws BeansException, IllegalStateException {
 		synchronized (this.startupShutdownMonitor) {
+			// 刷新之前的准备工作
+			// 准备工作包括设置启动时间，是否激活标识位
+			// 初始化属性源(property source)配置
 			// Prepare this context for refreshing.
 			prepareRefresh();
 
@@ -593,6 +596,8 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 		}
 
 		// Initialize any placeholder property sources in the context environment.
+		// 这个方法目前是空方法，没有子类去实现
+		// 估计spring是期待后面的版本有子类去实现吧
 		initPropertySources();
 
 		// Validate that all properties marked as required are resolvable:
